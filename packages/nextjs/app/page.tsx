@@ -12,8 +12,7 @@ const Home: NextPage = () => {
         <div className="max-w-4xl mx-auto px-4">
           <h1 className="text-4xl sm:text-6xl font-bold mb-4">Chain Educator</h1>
           <p className="text-lg sm:text-xl mb-8">
-            A tagline that describes what your project or product does in a few concise words.
-          </p>
+          Chain Educator is a beginner-friendly platform that provides hands-on tutorials for integrating Chainlink features like CCIP, VRF, and Data Feeds into your dApps. It includes example smart contracts and frontend components to help you get started quickly with cross-chain token transfers, messaging, and NFT minting.</p>
           <div className="space-x-4">
             <a
               href="https://github.com/KcPele/chain_education"
@@ -120,7 +119,11 @@ const Home: NextPage = () => {
 };
 
 // Feature Card Component
-const FeatureCard = ({ title, description, link }) => (
+const FeatureCard = ({ title, description, link }: {
+  title: string
+  description: string
+  link: string
+}) => (
   <Link href={link} className="hover:scale-105 transition-all w-80 bg-white p-6 shadow-lg rounded-lg text-center mb-8">
       <h4 className="text-2xl font-bold mb-4">{title}</h4>
       <p>{description}</p>
@@ -129,7 +132,10 @@ const FeatureCard = ({ title, description, link }) => (
 );
 
 // Getting Started Card Component
-const GettingStartedCard = ({ title, description }) => (
+const GettingStartedCard = ({ title, description }: {
+  title: string
+  description: string
+}) => (
   <div className="bg-gray-100 p-6 rounded shadow-lg">
     <h4 className="text-xl font-bold mb-2">{title}</h4>
     <p>{description}</p>
