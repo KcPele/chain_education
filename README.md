@@ -1,80 +1,110 @@
-# 🏗 Scaffold-ETH 2
+# 🏃 Chain Educator
 
-<h4 align="center">
-  <a href="https://docs.scaffoldeth.io">Documentation</a> |
-  <a href="https://scaffoldeth.io">Website</a>
-</h4>
+Chain Educator is designed as a beginner's guide to working with Chainlink. This extension includes example smart contracts and frontend components, making deployment on Fleek simple and stress-free. It serves as a foundation for building your Chainlink-based dApps or projects. The extension covers the following Chainlink features:
 
-🧪 An open-source, up-to-date toolkit for building decentralized applications (dapps) on the Ethereum blockchain. It's designed to make it easier for developers to create and deploy smart contracts and build user interfaces that interact with those contracts.
+- CCIP:
+  - Transfer tokens across chains using Chainlink CCIP
+  - Send and receive cross-chain messages
+  - Mint NFTs on a destination chain via cross-chain requests
+- Data Feeds
+- VRF
 
-⚙️ Built using NextJS, RainbowKit, Hardhat, Wagmi, Viem, and Typescript.
+## Table of Contents
 
-- ✅ **Contract Hot Reload**: Your frontend auto-adapts to your smart contract as you edit it.
-- 🪝 **[Custom hooks](https://docs.scaffoldeth.io/hooks/)**: Collection of React hooks wrapper around [wagmi](https://wagmi.sh/) to simplify interactions with smart contracts with typescript autocompletion.
-- 🧱 [**Components**](https://docs.scaffoldeth.io/components/): Collection of common web3 components to quickly build your frontend.
-- 🔥 **Burner Wallet & Local Faucet**: Quickly test your application with a burner wallet and local faucet.
-- 🔐 **Integration with Wallet Providers**: Connect to different wallet providers and interact with the Ethereum network.
+- [Getting Started](#getting-started)
+- [🔄 Token Transfers](#-token-transfers)
+- [✉️ Cross-Chain Messaging](#-cross-chain-messaging)
+- [🖼️ Cross-Chain NFT Minting](#-cross-chain-nft-minting)
+- [🎲 VRF (Verifiable Random Function)](#-vrf-verifiable-random-function)
+- [Links](#links)
+- [Team](#team)
 
-![Debug Contracts tab](https://github.com/scaffold-eth/scaffold-eth-2/assets/55535804/b237af0c-5027-4849-a5c1-2e31495cccb1)
+## Getting Started
 
-## Requirements
+Check out the [Chainlink Extension repo](https://github.com/arjanjohan/scaffold-chainlink-extension) and follow the installation instructions.
 
-Before you begin, you need to install the following tools:
+## 🔄 Token Transfers
 
-- [Node (>= v18.17)](https://nodejs.org/en/download/)
-- Yarn ([v1](https://classic.yarnpkg.com/en/docs/install/) or [v2+](https://yarnpkg.com/getting-started/install))
-- [Git](https://git-scm.com/downloads)
+Chainlink CCIP allows you to transfer tokens across different blockchains securely. The `TokenSender.sol` and `TokenTransfer.sol` contracts manage the process of sending tokens from one blockchain to another.
 
-## Quickstart
+### Frontend Interaction
 
-To get started with Scaffold-ETH 2, follow the steps below:
+- **Send Tokens:** Use the frontend interface to initiate a token transfer from the source blockchain to the destination blockchain. The frontend will handle the transaction and display the status.
 
-1. Install dependencies if it was skipped in CLI:
+- **Monitor Transfer:** Once the transfer is initiated, you can monitor its progress and confirm receipt on the destination blockchain.
 
-```
-cd my-dapp-example
-yarn install
-```
+### Details
 
-2. Run a local network in the first terminal:
+- Ensure both contracts are deployed on the respective chains.
+- You can choose to pay fees using native tokens (e.g., ETH) or LINK tokens.
 
-```
-yarn chain
-```
+### Links
 
-This command starts a local Ethereum network using Hardhat. The network runs on your local machine and can be used for testing and development. You can customize the network configuration in `packages/hardhat/hardhat.config.ts`.
+[Chainlink Docs: Cross-chain tokens](https://docs.chain.link/ccip/tutorials/cross-chain-tokens)
 
-3. On a second terminal, deploy the test contract:
+## ✉️ Cross-Chain Messaging
 
-```
-yarn deploy
-```
+The `MessageSender.sol` and `MessageReceiver.sol` contracts facilitate sending and receiving arbitrary data across chains.
 
-This command deploys a test smart contract to the local network. The contract is located in `packages/hardhat/contracts` and can be modified to suit your needs. The `yarn deploy` command uses the deploy script located in `packages/hardhat/deploy` to deploy the contract to the network. You can also customize the deploy script.
+### Frontend Interaction
 
-4. On a third terminal, start your NextJS app:
+- **Send a Message:** Through the frontend, send a message from one blockchain to another. The interface will guide you through inputting the message and selecting the destination.
 
-```
-yarn start
-```
+- **Receive a Message:** The frontend will display received messages on the destination blockchain, allowing you to track and verify cross-chain communication.
 
-Visit your app on: `http://localhost:3000`. You can interact with your smart contract using the `Debug Contracts` page. You can tweak the app config in `packages/nextjs/scaffold.config.ts`.
+### Details
 
-Run smart contract test with `yarn hardhat:test`
+- The frontend handles all the complexities of sending and receiving messages, making it easy to interact with the smart contracts.
 
-- Edit your smart contract `YourContract.sol` in `packages/hardhat/contracts`
-- Edit your frontend homepage at `packages/nextjs/app/page.tsx`. For guidance on [routing](https://nextjs.org/docs/app/building-your-application/routing/defining-routes) and configuring [pages/layouts](https://nextjs.org/docs/app/building-your-application/routing/pages-and-layouts) checkout the Next.js documentation.
-- Edit your deployment scripts in `packages/hardhat/deploy`
+### Links
 
+[Chainlink Docs: Getting Started](https://docs.chain.link/ccip/getting-started)
 
-## Documentation
+## 🖼️ Cross-Chain NFT Minting
 
-Visit our [docs](https://docs.scaffoldeth.io) to learn how to start building with Scaffold-ETH 2.
+The `SourceMinter.sol` and `DestinationMinter.sol` contracts enable NFT minting on a destination chain via cross-chain requests.
 
-To know more about its features, check out our [website](https://scaffoldeth.io).
+### Frontend Interaction
 
-## Contributing to Scaffold-ETH 2
+- **Mint an NFT:** Initiate the minting of an NFT on the destination chain using the frontend. The interface will manage the transaction and notify you once the NFT is successfully minted.
 
-We welcome contributions to Scaffold-ETH 2!
+- **View Minted NFTs:** The frontend will display the NFTs minted on the destination chain, allowing you to manage and interact with your assets.
 
-Please see [CONTRIBUTING.MD](https://github.com/scaffold-eth/scaffold-eth-2/blob/main/CONTRIBUTING.md) for more information and guidelines for contributing to Scaffold-ETH 2.
+### Details
+
+- The `BGNFT.sol` contract manages the NFT minting on the destination chain.
+- The frontend ensures a seamless experience for cross-chain NFT minting.
+
+### Links
+
+- [Extension Repo]()
+- [Demo video]()
+- [Vercel]()
+
+## 🎲 VRF (Verifiable Random Function)
+
+Chainlink VRF provides a provably fair and verifiable source of randomness, enabling smart contracts to perform randomized functions securely.
+
+### Frontend Interaction
+
+- **Request Random Number:** The frontend interface allows users to request a random number, which will be provided by Chainlink VRF. Once requested, the frontend displays the status of the request.
+- **Receive Random Number:** After the random number is generated, the frontend will display the result, which can be used for various applications (e.g., gaming, lotteries, or randomized selections).
+
+### Details
+
+- The `VRFConsumer.sol` contract interacts with Chainlink VRF to request and receive random numbers.
+- You must fund the contract with LINK tokens for requesting random numbers.
+- The `fulfillRandomWords` function will be automatically called when the random number is ready, and it can be used to trigger further contract functionality based on the random outcome.
+
+### Credits
+- Smart contract was part of Chainlinks documentation
+- Boiler plate: Scaffold-ETH2
+### Links
+
+- [Chainlink Docs: VRF](https://docs.chain.link/vrf/v2/introduction/)
+
+## Links
+
+- [Extension Repo]()
+- [Demo video]()
+- [Vercel]()

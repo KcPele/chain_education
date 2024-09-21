@@ -5,37 +5,18 @@ import { NextPage } from "next";
 const Home: NextPage = () => {
   return (
     <div className="min-h-screen bg-gray-50 text-gray-900">
-      {/* Header */}
-      <header className="bg-white shadow sticky top-0 z-50">
-        <div className="max-w-6xl mx-auto px-4 py-4 flex justify-between items-center">
-          <h1 className="text-xl font-bold">
-            <Link href="/">
-        Project Name
-            </Link>
-          </h1>
-          <nav className="space-x-4">
-            <Link href="#overview" className="hover:text-blue-600">Overview
-            </Link>
-            <Link href="#features" className="hover:text-blue-600">Features
-            </Link>
-            <Link href="#getstarted" className="hover:text-blue-600">Get Started
-            </Link>
-            <Link href="#contact" className="hover:text-blue-600">Contact
-            </Link>
-          </nav>
-        </div>
-      </header>
+ 
 
       {/* Hero Section */}
       <section id="overview" className="bg-blue-600 text-white text-center py-20">
         <div className="max-w-4xl mx-auto px-4">
-          <h1 className="text-4xl sm:text-6xl font-bold mb-4">Your Project Name</h1>
+          <h1 className="text-4xl sm:text-6xl font-bold mb-4">Chain Educator</h1>
           <p className="text-lg sm:text-xl mb-8">
             A tagline that describes what your project or product does in a few concise words.
           </p>
           <div className="space-x-4">
             <a
-              href="https://github.com/YourGitHubRepo"
+              href="https://github.com/KcPele/chain_education"
               className="bg-white text-blue-600 px-6 py-3 rounded shadow font-semibold hover:bg-gray-100"
             >
               View on GitHub
