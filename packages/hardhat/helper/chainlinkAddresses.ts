@@ -34,6 +34,14 @@ const chainlinkAddresses: ChainlinkAddresses = {
     vrf_coordinator: "0x5C210eF41CD1a72de73bF76eC39637bB0d3d7BEE",
     priceFeedAddress: "0x4aDC67696bA383F43DD60A9e78F2C97Fbbfc7cb1",
   },
+  localhost: {
+    router: "0xD3b06cEbF099CE7DA4AcCf578aaebFDBd6e88a93",
+    donId: "0x66756e2d626173652d7365706f6c69612d310000000000000000000000000000",
+    link: "0xE4aB69C077896252FAFBD49EFD26B5D171A32410",
+    vrf_wrapper: "0x7a1BaC17Ccc5b313516C5E16fb24f7659aA5ebed",
+    vrf_coordinator: "0x5C210eF41CD1a72de73bF76eC39637bB0d3d7BEE",
+    priceFeedAddress: "0x4aDC67696bA383F43DD60A9e78F2C97Fbbfc7cb1",
+  },
 };
 
 export default chainlinkAddresses;

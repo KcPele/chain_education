@@ -25,6 +25,8 @@ const deployVrfDirectFunding: DeployFunction = async function (hre: HardhatRunti
     args: [link, vrf_wrapper],
     log: true,
     autoMine: true,
+    gasLimit: 500000,
+    
   });
 };
 
