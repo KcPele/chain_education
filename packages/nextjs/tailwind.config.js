@@ -76,7 +76,6 @@ module.exports = {
   },
   theme: {
     extend: {
-      
       boxShadow: {
         center: "0 0 12px -2px rgb(0 0 0 / 0.05)",
       },
