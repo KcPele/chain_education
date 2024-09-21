@@ -1,71 +1,158 @@
-"use client";
-
+import React from "react";
 import Link from "next/link";
-import type { NextPage } from "next";
-import { useAccount } from "wagmi";
-import { BugAntIcon, MagnifyingGlassIcon } from "@heroicons/react/24/outline";
-import { Address } from "~~/components/scaffold-eth";
+import { NextPage } from "next";
 
 const Home: NextPage = () => {
-  const { address: connectedAddress } = useAccount();
-
   return (
-    <>
-      <div className="flex items-center flex-col flex-grow pt-10">
-        <div className="px-5">
-          <h1 className="text-center">
-            <span className="block text-2xl mb-2">Welcome to</span>
-            <span className="block text-4xl font-bold">Scaffold-ETH 2</span>
+    <div className="min-h-screen bg-gray-50 text-gray-900">
+      {/* Header */}
+      <header className="bg-white shadow sticky top-0 z-50">
+        <div className="max-w-6xl mx-auto px-4 py-4 flex justify-between items-center">
+          <h1 className="text-xl font-bold">
+            <Link href="/">
+        Project Name
+            </Link>
           </h1>
-          <div className="flex justify-center items-center space-x-2 flex-col sm:flex-row">
-            <p className="my-2 font-medium">Connected Address:</p>
-            <Address address={connectedAddress} />
-          </div>
-          <p className="text-center text-lg">
-            Get started by editing{" "}
-            <code className="italic bg-base-300 text-base font-bold max-w-full break-words break-all inline-block">
-              packages/nextjs/app/page.tsx
-            </code>
-          </p>
-          <p className="text-center text-lg">
-            Edit your smart contract{" "}
-            <code className="italic bg-base-300 text-base font-bold max-w-full break-words break-all inline-block">
-              YourContract.sol
-            </code>{" "}
-            in{" "}
-            <code className="italic bg-base-300 text-base font-bold max-w-full break-words break-all inline-block">
-              packages/hardhat/contracts
-            </code>
-          </p>
+          <nav className="space-x-4">
+            <Link href="#overview" className="hover:text-blue-600">Overview
+            </Link>
+            <Link href="#features" className="hover:text-blue-600">Features
+            </Link>
+            <Link href="#getstarted" className="hover:text-blue-600">Get Started
+            </Link>
+            <Link href="#contact" className="hover:text-blue-600">Contact
+            </Link>
+          </nav>
         </div>
+      </header>
 
-        <div className="flex-grow bg-base-300 w-full mt-16 px-8 py-12">
-          <div className="flex justify-center items-center gap-12 flex-col sm:flex-row">
-            <div className="flex flex-col bg-base-100 px-10 py-10 text-center items-center max-w-xs rounded-3xl">
-              <BugAntIcon className="h-8 w-8 fill-secondary" />
-              <p>
-                Tinker with your smart contract using the{" "}
-                <Link href="/debug" passHref className="link">
-                  Debug Contracts
-                </Link>{" "}
-                tab.
-              </p>
-            </div>
-            <div className="flex flex-col bg-base-100 px-10 py-10 text-center items-center max-w-xs rounded-3xl">
-              <MagnifyingGlassIcon className="h-8 w-8 fill-secondary" />
-              <p>
-                Explore your local transactions with the{" "}
-                <Link href="/blockexplorer" passHref className="link">
-                  Block Explorer
-                </Link>{" "}
-                tab.
-              </p>
-            </div>
+      {/* Hero Section */}
+      <section id="overview" className="bg-blue-600 text-white text-center py-20">
+        <div className="max-w-4xl mx-auto px-4">
+          <h1 className="text-4xl sm:text-6xl font-bold mb-4">Your Project Name</h1>
+          <p className="text-lg sm:text-xl mb-8">
+            A tagline that describes what your project or product does in a few concise words.
+          </p>
+          <div className="space-x-4">
+            <a
+              href="https://github.com/YourGitHubRepo"
+              className="bg-white text-blue-600 px-6 py-3 rounded shadow font-semibold hover:bg-gray-100"
+            >
+              View on GitHub
+            </a>
+            <Link href="#getstarted" className="bg-gray-800 text-white px-6 py-3 rounded shadow hover:bg-gray-900">
+                Get Started
+            
+            </Link>
           </div>
         </div>
-      </div>
-    </>
+      </section>
+
+      {/* Features Section */}
+      <section id="features" className="container mx-auto py-20 px-4">
+        <h2 className="text-3xl font-bold text-center mb-12">Features</h2>
+        <div className="flex flex-wrap justify-around">
+          <FeatureCard
+            title="🔄 Token Transfers"
+            description="Securely transfer tokens across different blockchains using Chainlink CCIP."
+            link="/token-transfer"
+          />
+          <FeatureCard
+            title="✉️ Cross-Chain Messaging"
+            description="Send and receive data across multiple blockchains seamlessly."
+            link="/cross-chain-messaging"
+          />
+          <FeatureCard
+            title="🖼️ NFT Minting"
+            description="Mint NFTs on any destination chain via cross-chain requests."
+            link="/cross-chain-minting"
+          />
+          <FeatureCard
+            title="🎲 Chainlink VRF"
+            description="Generate and verify randomness securely using Chainlink VRF."
+            link="/vrf"
+          />
+          <FeatureCard
+            title="📈 Data Feeds"
+            description="Connect your smart contracts to the real-world data such as asset prices."
+            link="/price-feed"
+          />
+        </div>
+      </section>
+
+      {/* Getting Started Section */}
+      <section id="getstarted" className="bg-white py-20">
+        <div className="max-w-4xl mx-auto px-4">
+          <h2 className="text-3xl font-bold text-center mb-12">Getting Started</h2>
+          <p className="text-lg mb-8 text-center">
+            A quick start guide to help you integrate our features into your project.
+          </p>
+          <div className="space-y-6">
+            <GettingStartedCard
+              title="🔄 Token Transfers"
+              description="Use Chainlink CCIP to securely transfer tokens across different blockchains."
+            />
+            <GettingStartedCard
+              title="✉️ Cross-Chain Messaging"
+              description="Transmit important data or commands between different blockchains."
+            />
+            <GettingStartedCard
+              title="🖼️ Cross-Chain NFT Minting"
+              description="Trigger NFT creation on another blockchain, expanding the reach of your digital assets."
+            />
+            <GettingStartedCard
+              title="🎲 Chainlink VRF"
+              description="Generate secure and verifiable randomness for various use cases."
+            />
+            <GettingStartedCard
+              title="📈 Data Feeds"
+              description="Connect your smart contracts to real-world data, such as asset prices and more."
+            />
+          </div>
+        </div>
+      </section>
+
+      {/* Contact Section */}
+      <section id="contact" className="bg-gray-100 py-20">
+        <div className="max-w-4xl mx-auto px-4 text-center">
+          <h2 className="text-3xl font-bold mb-8">Contact Us</h2>
+          <p className="text-lg mb-4">
+            If you have any questions or need support, feel free to reach out to us.
+          </p>
+          <a
+            href="mailto:support@example.com"
+            className="bg-blue-600 text-white px-6 py-3 rounded shadow hover:bg-blue-700"
+          >
+            Email Us
+          </a>
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer className="bg-gray-800 text-white py-6">
+        <div className="max-w-6xl mx-auto px-4 text-center">
+          <p>&copy; 2024 Your Project Name. All rights reserved.</p>
+        </div>
+      </footer>
+    </div>
   );
 };
+
+// Feature Card Component
+const FeatureCard = ({ title, description, link }) => (
+  <Link href={link} className="hover:scale-105 transition-all w-80 bg-white p-6 shadow-lg rounded-lg text-center mb-8">
+      <h4 className="text-2xl font-bold mb-4">{title}</h4>
+      <p>{description}</p>
+  
+  </Link>
+);
+
+// Getting Started Card Component
+const GettingStartedCard = ({ title, description }) => (
+  <div className="bg-gray-100 p-6 rounded shadow-lg">
+    <h4 className="text-xl font-bold mb-2">{title}</h4>
+    <p>{description}</p>
+  </div>
+);
 
 export default Home;
