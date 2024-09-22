@@ -77,9 +77,8 @@ The `SourceMinter.sol` and `DestinationMinter.sol` contracts enable NFT minting 
 
 ### Links
 
-- [Extension Repo]()
-- [Demo video]()
-- [Vercel]()
+- [Demo video](https://vimeo.com/1011669688/1b965fd7ad)
+- [Fleek](https://late-motorcycle-wailing.on-fleek.app/)
 
 ## 🎲 VRF (Verifiable Random Function)
 
@@ -105,6 +104,5 @@ Chainlink VRF provides a provably fair and verifiable source of randomness, enab
 
 ## Links
 
-- [Extension Repo]()
-- [Demo video]()
-- [Vercel]()
+- [Demo video](https://vimeo.com/1011669688/1b965fd7ad)
+- [Fleek](https://late-motorcycle-wailing.on-fleek.app/)
