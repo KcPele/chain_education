@@ -21,8 +21,6 @@ Chain Educator is designed as a beginner's guide to working with Chainlink. This
 
 ## Getting Started
 
-Check out the [Chainlink Extension repo](https://github.com/arjanjohan/scaffold-chainlink-extension) and follow the installation instructions.
-
 ## 🔄 Token Transfers
 
 Chainlink CCIP allows you to transfer tokens across different blockchains securely. The `TokenSender.sol` and `TokenTransfer.sol` contracts manage the process of sending tokens from one blockchain to another.
